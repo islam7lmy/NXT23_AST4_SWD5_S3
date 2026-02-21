@@ -1,4 +1,6 @@
-﻿namespace Demo01
+﻿using System.Text;
+
+namespace Demo01
 {
     internal class Program
     {
@@ -179,7 +181,218 @@
             //X /= 2; // X = X / 2, now X is 4
             //X %= 2; // X = X % 2, now X is 0
             #endregion
+            #region Relational Operators [Comparsion]
+            //int X = 6, Y = 5;
+            //Console.WriteLine(X == Y); // equality operator, returns true if X and Y are equal, otherwise false
+            //Console.WriteLine(X != Y); // inequality operator, returns true if X and Y are not equal, otherwise false
+            //Console.WriteLine(X > Y); // greater than operator, returns true if X is greater than Y, otherwise false
+            //Console.WriteLine(X < Y); // less than operator, returns true if X is less than Y, otherwise false
+            //Console.WriteLine(X >= Y); // greater than or equal operator, returns true if X is greater than or equal to Y, otherwise false
+            //Console.WriteLine(X <= Y); // less than or equal operator, returns true if X is less than or equal to Y, otherwise false
             #endregion
+            #region Logical Operators
+            //Console.WriteLine(!false); // logical NOT operator, returns true if the operand is false, otherwise false
+            //Console.WriteLine(false && true); //short circuit // logical AND operator, returns true if both operands are true, otherwise false
+            //Console.WriteLine(true || false); //short circuit // logical OR operator, returns true if at least one operand is true, otherwise false
+
+            //Console.WriteLine((4<5) && ((7<9) || 5 ==5)); // logical expression with multiple operators, evaluates to true
+            #endregion
+            #region Bitwise Operators
+            //Console.WriteLine(false & true); //long circuit // bitwise AND operator, returns true if both operands are true, otherwise false
+            //Console.WriteLine(true | false); //long circuit // bitwise OR operator, returns true if at least one operand is true, otherwise false
+            //Console.WriteLine(true ^ false); // bitwise XOR operator, returns true if exactly one operand is true, otherwise false
+            #endregion
+            #region Ternary Operator [Conditional Operator]
+            //int X = 4 , Y = 7;
+            //if(X > Y)
+            //    Console.WriteLine("X is greater than Y");
+            //else
+            //    Console.WriteLine("Y is greater than X");
+
+            //Console.WriteLine(X > Y ? "X is greater than Y" : "Y is greater than X");
+
+            //int flag = X > Y ? 1 : 0;
+
+            //int flag;
+            //if (X > Y)
+            //    flag = 1;
+            //else
+            //    flag = 0;
+            #endregion
+            #region Operator Priorty
+            /*
+             * 1. unary operators (prefix) ++x , --x
+             * 2. round brackets (parentheses)
+             * 3. multiplicative operators * , / , %
+             * 4. additive operators + , -
+             */
+            //int a = 20, b = 10, c = 15, d = 5, e;
+            //e = (a + b) * c / d; // e = (20 + 10) * 15 / 5 = 30 * 15 / 5 = 450 / 5 = 90
+            //e = ((--a + b) * c) / d; // e = ((19 + 10) * 15) / 5 = (29 * 15) / 5 = 435 / 5 = 87
+            //e = --a + b * c / d; //e = 19 + 10 * 15 / 5 = 19 + 150 / 5 = 19 + 30 = 49
+            #endregion
+            #endregion
+
+            #region String vs Stringbuilder
+            //Console.WriteLine("string");
+            //string X = "Hello"; // syntex sugar string X = new string("Hello");
+            //Console.WriteLine(X.GetHashCode());
+            //X += " World"; //x = "hello" + "world" = new string("hello world")  
+            //Console.WriteLine(X.GetHashCode());
+            //// string is immutable, so a new string object is created in heap with value "Hello World", and X reference is updated to point to the new object, the old string "Hello" is eligible for garbage collection
+            //X = "hello ahmed"; // a new string object is created in heap with value "hello ahmed", and X reference is updated to point to the new object, the old string "Hello World" is eligible for garbage collection
+            //Console.WriteLine(X.GetHashCode());
+            //////////////////////////////////////////////
+            //Console.WriteLine("StringBuilder");
+            //StringBuilder Y = new StringBuilder("Hello"); // allocate StringBuilder object in heap with initial value "Hello", and Y reference points to it
+            //Console.WriteLine(Y.GetHashCode());
+            //Y.Append(" World"); // modify the existing StringBuilder object by appending " World" to it, no new object is created, Y reference still points to the same object with updated value "Hello World"
+            //Console.WriteLine(Y.GetHashCode());
+            //Y.Append(" hello ahmed"); // modify the existing StringBuilder object by appending " hello ahmed" to it, no new object is created, Y reference still points to the same object with updated value "Hello World hello ahmed"
+            //Console.WriteLine(Y.GetHashCode());
+            #endregion
+
+            #region String Formating
+            // Equation : 4 + 2 = 6
+            //int num1 = 4, num2 = 2;
+            //1. string concatenation
+            //string result1 = "Equation : " + num1 + " + " + num2 + " = " + (num1 + num2);
+            //2. string format method
+            //string result1 = string.Format("Equation : {0} + {1} = {2}", num1, num2,(num1 + num2));
+            //3. string interpolation (C# 6.0 feature)
+            //string result1 = $"Equation : {num1} + {num2} = {num1 + num2}";
+            //Console.WriteLine(result1);
+            #endregion
+
+            #region Conditional statments
+            #region EX01
+            #region If
+            //Console.Write("insert number of month in first qurter of year : ");
+            ////int month;
+            //if (int.TryParse(Console.ReadLine(), out int month))
+            //{
+            //    if (month == 1)
+            //    {
+            //        Console.WriteLine("January");
+            //    }
+            //    else if (month == 2)
+            //    {
+            //        Console.WriteLine("February");
+            //    }
+            //    else if (month == 3)
+            //    {
+            //        Console.WriteLine("March");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("invalid month number");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("you entered month number with wrong format");
+            //}
+            #endregion
+
+            #region Switch
+            //Console.Write("insert number of month in first qurter of year : ");
+            ////int month;
+            //if (int.TryParse(Console.ReadLine(), out int month))
+            //{
+            //    // jump table => O(1) time complexity, no need to evaluate multiple conditions like in if-else if ladder, the program directly jumps to the case that matches the value of month
+            //    switch (month)
+            //    {
+            //        case 1:
+            //            Console.WriteLine("January");
+            //            break;
+            //        case 2:
+            //            Console.WriteLine("February");
+            //            break;
+            //        case 3:
+            //            Console.WriteLine("March");
+            //            break;
+            //        default:
+            //            Console.WriteLine("invalid month number");
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("you entered month number with wrong format");
+            //}
+            #endregion
+
+            #endregion
+            #region EX02
+            //int value = 3000;
+            //switch (value)
+            //{
+            //    case 3000:
+            //        Console.WriteLine("option 03");
+            //        //Console.WriteLine("option 02");
+            //        //Console.WriteLine("option 01");
+            //        //break;
+            //        goto case 2000; // jump to case 2000 without evaluating its condition, this is a feature of switch statement that allows fall-through behavior
+            //    case 2000:
+            //        Console.WriteLine("option 02");
+            //        //Console.WriteLine("option 01");
+            //        //break;
+            //        goto case 1000; // jump to case 1000 without evaluating its condition
+            //    case 1000:
+            //        Console.WriteLine("option 01");
+            //        break;
+            //    default:
+            //        Console.WriteLine("NA");
+            //        break;
+            //}
+            #endregion
+            #region EX03: Calculter
+            /// +,-,*,/,%
+            /// num1, opretation ,num2
+            /// protective
+            #endregion
+            #endregion
+
+            #region Loop Statments
+            /// 1 -> 10
+            //Console.WriteLine("1");
+            //Console.WriteLine("2");
+            //Console.WriteLine("3");
+            //Console.WriteLine("4");
+            //Console.WriteLine("5");
+            //Console.WriteLine("6");
+            //Console.WriteLine("7");
+            //Console.WriteLine("8");
+            //Console.WriteLine("9");
+            //Console.WriteLine("10");
+
+            ///1. for loop
+            /// for (initialization; condition; iteration)
+
+            /// initialization: executed once at the beginning of the loop, used to initialize loop control variable
+            /// condition: evaluated before each iteration, if it evaluates to true, the loop body is executed, otherwise the loop terminates
+            /// body: the code that is executed in each iteration of the loop
+            /// iteration : executed at the end of each iteration, used to update loop control variable
+            /// condition: typically involves the loop control variable and determines when the loop should stop executing
+
+            //for (int i = 1; i <= 10; i++)
+            //for (int i = 1; i <= 10; ++i)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //int x = 1;
+            //x++; //x = 2
+            //Console.WriteLine(x); //print 2 | x  2
+            ////////////////////////////////////////////////
+            //++x; //x = 2
+            //Console.WriteLine(x); //print 2 | x  2
+
+            //Console.WriteLine(++x); // print 2 | x  2
+            //////////////////////////////////////////////////
+            //Console.WriteLine(x++); // print 1 | x  2
+            #endregion
+
         }
     }
 }
