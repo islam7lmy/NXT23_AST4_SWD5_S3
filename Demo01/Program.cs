@@ -366,6 +366,7 @@ namespace Demo01
             //Console.WriteLine("9");
             //Console.WriteLine("10");
 
+            #region For
             ///1. for loop
             /// for (initialization; condition; iteration)
 
@@ -381,6 +382,36 @@ namespace Demo01
             //    Console.WriteLine(i);
             //}
 
+
+            /*int i = 1;
+            for (; ; )
+            {
+                if (i <= 10)
+                {
+                    if (i % 2 == 0)
+                    {
+                        i++;
+                        continue; // skip the rest of the loop body and start the next iteration, this is a feature of loop statements that allows you to skip certain iterations based on a condition
+                    }
+                    Console.WriteLine(i);
+                    i++;
+                }
+                else
+                {
+                    break; // exit the loop when i is greater than 10
+                    //Console.WriteLine("running");
+                }
+            }*/
+
+            /*for (int i = 1; i <= 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    continue; // skip the rest of the loop body and start the next iteration when i is even
+                }
+                Console.WriteLine(i); // print odd numbers from 1 to 10
+            }*/
+
             //int x = 1;
             //x++; //x = 2
             //Console.WriteLine(x); //print 2 | x  2
@@ -390,9 +421,144 @@ namespace Demo01
 
             //Console.WriteLine(++x); // print 2 | x  2
             //////////////////////////////////////////////////
-            //Console.WriteLine(x++); // print 1 | x  2
+            //Console.WriteLine(x++); // print 1 | x  2 
             #endregion
 
+            #region While
+            /*while(reader.Read()) //false when end of file is reached, true if there are more lines to read
+            {
+
+            }*/
+
+            //Console.WriteLine("insert 0 if you want to continue");
+            //string input = Console.ReadLine();
+            //while (input == "0")
+            //{
+            //    Console.WriteLine("you are in the loop");
+            //    Console.WriteLine("insert 0 if you want to continue");
+            //    input = Console.ReadLine();
+            //}
+
+            /*while (true)
+            {
+                Console.WriteLine("insert first number");
+                double num1;
+                while (!double.TryParse(Console.ReadLine(), out num1))
+                {
+                    Console.WriteLine("wrong format,please insert first number");
+                }
+                Console.WriteLine("insert operation (+ , - , * , / , %)");
+                char operation;
+                while(!(char.TryParse(Console.ReadLine(), out operation)
+                    &&
+                    (operation == '+' || operation == '-' ||
+                    operation == '*' || operation == '/' ||
+                    operation == '%')))
+                {
+                    Console.WriteLine("wrong format,please insert operation (+ , - , * , / , %)");
+                }
+                //if (char.TryParse(Console.ReadLine(), out operation)
+                //    &&
+                //    (operation == '+' || operation == '-' ||
+                //    operation == '*' || operation == '/' ||
+                //    operation == '%')
+                //    )
+                //{
+                //    Console.WriteLine("operation is char");
+                //    Console.WriteLine("operation is valid");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("not valid char");
+                //    Console.WriteLine("operation is not valid");
+                //}
+
+                Console.WriteLine("insert seconed number");
+                double num2;
+                while (!double.TryParse(Console.ReadLine(), out num2))
+                {
+                    Console.WriteLine("wrong format,please insert seconed number");
+                }
+                var result = 0;
+                //    operation switch
+                //{
+                //    '+' => num1 + num2,
+                //    '-' => num1 - num2,
+                //    '*' => num1 * num2,
+                //    '/' => num2 != 0 ? num1 / num2 : double.NaN, // handle division by zero case
+                //    '%' => num2 != 0 ? num1 % num2 : double.NaN, // handle modulus by zero case
+                //    _ => double.NaN // this case should never be hit due to input validation, but it's good practice to have a default case
+                //};
+                Console.WriteLine($"Eqution: {num1} {operation} {num2} = {result}");
+                Console.WriteLine("/////////////////////////////////////////////////////////////");
+            }*/
+            #endregion
+
+            #region do while
+            //for(int i = 11; i<= 10; i++)
+            //    Console.WriteLine(i);
+
+            //int i = 11;
+            //do
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //}while (i <= 10);
+
+            //double num1;
+            //do
+            //{
+            //    Console.WriteLine("insert first number");
+            //} while (!double.TryParse(Console.ReadLine(), out num1));
+
+            #endregion
+
+            #region foreach
+            //collections
+            //List<string> names = new List<string> { "Ahmed", "Ali", "Omar" };
+            //for (int i = 0; i < names.Count; i++)
+            //{
+            //    string item = names[i];
+            //    item = $"hello {item}";
+            //    //Console.WriteLine(item);
+            //}
+
+            //foreach (string item in names) //for displaying items in collection, it is read-only, you cannot modify the collection items through the loop variable, this is a feature of foreach loop that ensures the integrity of the collection while iterating over it
+            //    //item = $"hello {item}";
+            //    Console.WriteLine(item);
+            #endregion
+            #endregion
+
+            #region Block Scope
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //Console.WriteLine(i); //out of scope, i is only accessible within the for loop block
+
+
+            //if(double.TryParse(Console.ReadLine(),out double x))
+            //{
+            //    Console.WriteLine(x);
+            //}
+            //Console.WriteLine(x);
+
+            //while(double.TryParse(Console.ReadLine(), out double y))
+            //{
+            //    Console.WriteLine(y);
+            //}
+            //Console.WriteLine(y);
+
+            //{ 
+            //    int x;
+            //    x = 5; 
+            //}
+
+            //{
+            //    int x;
+            //    x = 5;
+            //}
+            #endregion
         }
     }
 }
