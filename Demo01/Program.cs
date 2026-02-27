@@ -559,6 +559,73 @@ namespace Demo01
             //    x = 5;
             //}
             #endregion
+
+            #region Arrays
+            #region One D Array
+            ///array reference type
+
+            //int[] numbers = new int[5];
+            //int[] numbers = new int[] {1,2,3,4,5};
+            //int[] numbers2 = { 1, 2, 3, 4, 5 };
+
+            //numbers[0] = 5;
+            //numbers[5] = 6;
+
+            //Console.WriteLine($"the size of array = {numbers.Length} , the number of dimensions = {numbers.Rank}");
+
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine($"enter the {i + 1} element of array");
+            //    } while (!int.TryParse(Console.ReadLine(), out numbers[i]));
+            //}
+
+            //foreach (int item in numbers)
+            //    Console.WriteLine(item);
+            #endregion
+            #region Two D Array [Rectangular]
+            //int[,] Marks;
+            //Marks = new int[3, 5];
+
+            //Console.WriteLine($"the size of array = {Marks.Length} , the number of dimensions = {Marks.Rank}");
+            //Console.WriteLine($"{Marks.GetLength(0)} , {Marks.GetLength(1)}");
+
+            #endregion
+            #region Two D Array [Judged]
+            //int[][] numbers;
+            //numbers = new int[3][];
+
+            //numbers[0] = new int[] { 1, 2, 3 };
+            //numbers[1] = new int[] { 1, 2 };
+            //numbers[2] = new int[] { 1 };
+
+            //numbers[0][0] = 20;
+            #endregion
+            #region Array Methods
+
+            #endregion
+            #endregion
+
+            #region Nullable types
+
+            #endregion
+
+            #region Null Propagation Operator
+
+            #endregion
+
+            #region Functions
+
+            #endregion
+
+            #region Exceptions Handling
+
+            #endregion
+
+            #region Enums
+
+            #endregion
         }
     }
 }
