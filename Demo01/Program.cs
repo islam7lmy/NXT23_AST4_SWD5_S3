@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 
 namespace Demo01
 {
@@ -591,28 +592,204 @@ namespace Demo01
             //Console.WriteLine($"the size of array = {Marks.Length} , the number of dimensions = {Marks.Rank}");
             //Console.WriteLine($"{Marks.GetLength(0)} , {Marks.GetLength(1)}");
 
+
+            ///read elments of arry from user 
+            ///print elemnts of arry to user
+            ///write program to do that with protictive code and readable messages
+
+            //for (int i = 0; i < Marks.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < Marks.GetLength(1); j++)
+            //    {
+            //        Console.WriteLine($"enter array elment Marks[{i},{j}]");
+            //        while (!int.TryParse(Console.ReadLine(), out Marks[i, j]))
+            //        {
+            //            Console.WriteLine($"wrong format, enter array elment Marks[{i},{j}]");
+            //        }
+            //    }
+            //}
+
+            //for (int i = 0; i < Marks.Length; i++)
+            //{
+            //    int row = i / Marks.GetLength(1); //currnt row
+            //    int column = i % Marks.GetLength(1); //currnt column
+            //    Console.WriteLine($"enter array elment Marks[{row},{column}]");
+            //    while (!int.TryParse(Console.ReadLine(), out Marks[row, column]))
+            //    {
+            //        Console.WriteLine($"wrong format, enter array elment Marks[{row},{column}]");
+            //    }
+            //}
+
+            //foreach (int item in Marks)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
             #region Two D Array [Judged]
-            //int[][] numbers;
-            //numbers = new int[3][];
+            //int[,][,] numbers;
+            //numbers = new int[3, 5][,];
 
-            //numbers[0] = new int[] { 1, 2, 3 };
-            //numbers[1] = new int[] { 1, 2 };
-            //numbers[2] = new int[] { 1 };
+            //numbers[0, 0] = new int[2, 4];
+            //numbers[0, 1] = new int[1, 3];
+            //numbers[0, 2] = new int[2, 1];
 
-            //numbers[0][0] = 20;
+            //Console.WriteLine($"the size of array = {numbers.Length} , the number of dimensions = {numbers.Rank}");
+            //Console.WriteLine($"{numbers.GetLength(0)} , {numbers.GetLength(1)}");
+            //Console.WriteLine($"the size of array = {numbers[0, 0].Length} , the number of dimensions = {numbers[0, 0].Rank}");
+            //Console.WriteLine($"{numbers[0, 0].GetLength(0)} , {numbers[0, 0].GetLength(1)}");
+            //numbers[0, 0][0, 0] = 11;
+            //Console.WriteLine(numbers[0, 0][0, 0]);
+
+
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    int row = i / numbers.GetLength(1); //currnt row
+            //    int column = i % numbers.GetLength(1); //currnt column
+            //    Console.WriteLine($"enter array elment numbers[{row},{column}]");
+            //    Console.WriteLine("enter number of Diminsion (1 or 2)");
+            //    int dim;
+            //    while (!int.TryParse(Console.ReadLine(), out dim) && (dim != 1 && dim != 2))
+            //    {
+            //        Console.WriteLine("wrong format,enter number of Diminsion (1 or 2)");
+            //    }
+
+            //    if (dim == 1) 
+            //    {
+            //        //size = read element
+            //        //numbers[row,column] = new int[size];
+            //        //numbers[row,column] = Array.CreateInstance(typeof(int), size);;
+
+            //    }
+            //    else //dim = 2
+            //    {
+            //        //innerrows
+            //        //innercolumn
+            //        //numbers[row, column] = new int[innerrows,innercolumn];
+
+            //    }
+            //}
             #endregion
             #region Array Methods
+            //int[] numbers = { 8, 3, 4, 5, 6, 7, 9, 7, 1 ,3};
+            #region 1. Class Member Methods [Static Methods]
+            //Array.Sort(numbers);
+
+            //Array.Reverse(numbers);
+
+            //Array.Clear(numbers);
+
+            //Console.WriteLine(Array.IndexOf(numbers, 7)); //first index
+            //Console.WriteLine(Array.LastIndexOf(numbers, 7)); //last index
+
+            //var newarr = Array.CreateInstance(typeof(int), 10); //int[] newarr = new int[10];
 
             #endregion
+            #region 2. Object Member Methods [Non-Static Methods]
+            //int[] newarr = new int[10];
+            //numbers.CopyTo(newarr, 5);
+            //Console.WriteLine(numbers.GetValue(5));
+
+            //numbers.SetValue(18, 5);
+            //Console.WriteLine(numbers.GetValue(5));
+            #endregion
+            //foreach (int i in newarr)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            #endregion
+
+            ///Ex01: write a program find the longest distance between Two equal cells.
+            ///In this example.The distance is measured by the number Of cells- for example
+            #endregion
+
+            #region Boxing vs UnBoxing [not recomended]
+            /// Boxing  : casting valuetype to referencetype
+            /// UnBoxing : casting referencetype to valuetype
+            //object o1;
+
+            //o1 = new object();
+            //Console.WriteLine(o1.GetHashCode());
+            //o1 = "ahmed";
+            //Console.WriteLine(o1.GetHashCode());
+
+            //o1 = 5; //int[valuetype] to object[referencetype] -> Boxing 
+            ///o1 = 'A'; //char[valuetype] to object[referencetype] -> Boxing 
+            //o1 = 3.3; //double[valuetype] to object[referencetype] -> Boxing 
+            //o1 = true; //bool[valuetype] to object[referencetype] -> Boxing 
+            //o1 = new DateTime(); //DateTime[valuetype] to object[referencetype] -> Boxing 
+            //o1 = new DateOnly(); //DateOnly[valuetype] to object[referencetype] -> Boxing 
+            //o1 = new TimeOnly(); //TimeOnly[valuetype] to object[referencetype] -> Boxing 
+
+            //int x = 5;
+            //object o1 = x;
+            ///casting from int[valuetype] to object[referencetype] implicit
+            /// parent = childx
+            /// animal = dog
+            /// safe casting
+            /// boxing
+
+            //object o1 = 5;
+            //o1 = "hamada";
+            //int x =(int) o1; //may throw exception [InvalidCastingException]
+            //// Casting from object[ReferenceType] to int[ValueType] Explicitly
+            /// childx = (childx) parent
+            /// dog =(dog) animal
+            /// unsafe casting
+            /// unboxing
             #endregion
 
             #region Nullable types
+            ///nullabletypes : valuetypes allow null as value
+            ///Assign Null as a Value for ValueType[int, char, bool, decimal, etc] Variables
 
+            //int age = 22; //integer
+            //age = null; //invalid
+
+            //int? x; //nullable inetger : allow int value + null
+
+            //double? y;//nullable double : allow double value + null
+            //y = 3;
+            //y = null;
+
+            //int x = 8;
+            //int? y = x;
+            //// safe casting implicit casting
+
+            ////x = y;
+            //// unsafe casting explict casting
+            //if (y is not null)
+            //    x = (int)y;
+
+            //if (y.HasValue)
+            //    x = y.Value;
+
+            //x = y.HasValue ? y.Value : 0;
+
+            ///// null-coalescing operator  ??
+            //x = y ?? 0;
             #endregion
 
             #region Null Propagation Operator
+            //double x = default; // 0
+            //int[] arr = default; // null
 
+            //int length = arr.Length; //unsafe
+            //int? length = arr?.Length; //null
+            //int length = arr?.Length ?? 0; //safe
+
+            //if (arr is not null)
+            //    for (int i = 0; i < arr.Length; i++)
+            //    {
+            //        Console.WriteLine(arr[i]);
+            //    }
+
+            ////// Null Propagtion Operator [Null Condtional Operator]
+            //for (int i = 0; i < arr?.Length; i++)
+            //{
+            //    Console.WriteLine(arr[i]);
+            //}
+
+            ///employee?.department?.departmentname
             #endregion
 
             #region Functions
