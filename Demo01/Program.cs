@@ -700,6 +700,29 @@ namespace Demo01
 
             ///Ex01: write a program find the longest distance between Two equal cells.
             ///In this example.The distance is measured by the number Of cells- for example
+            //int size;
+            //Console.WriteLine("enter size of array");
+            //while (!int.TryParse(Console.ReadLine(),out size) || size < 1)
+            //{
+            //    Console.WriteLine("wrong formt, enter size of array");
+            //}
+            //int[] arr = new int[size];
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.WriteLine($"enter the {i + 1} element of array");
+            //    while (!int.TryParse(Console.ReadLine(), out arr[i]))
+            //    {
+            //        Console.WriteLine($"wrong format, enter the {i + 1} element of array");
+            //    }
+            //}
+
+            //int maxdist = -1;
+            //foreach (var item in arr)
+            //{
+            //    int dist = Array.LastIndexOf(arr, item) - Array.IndexOf(arr, item) - 1;
+            //    if (dist > maxdist)
+            //        maxdist = dist;
+            //}
             #endregion
 
             #region Boxing vs UnBoxing [not recomended]
@@ -793,7 +816,45 @@ namespace Demo01
             #endregion
 
             #region Functions
+            #region Prortotype and calling
+            //PrintLine();
+            //PrintLine(20,"$"); //passing parameters by position
+            ////PrintLine(,"$"); //invalid
+            //PrintLine(20); //passing parameters by position
+            //PrintLine(pattern: "@"); //passing parameters by name
+            //PrintLine(pattern: "@",number:20); //passing parameters by name
+            #endregion
+            #region value type 
+            //int num1 = 9, num2 = 4;
+            //Console.WriteLine($"outer method, num1 = {num1} , num2 = {num2}");
+            ////SwapByValue(num1,num2); //passing by value
+            //SwapByRef(ref num1,ref num2); //passing by value
+            //Console.WriteLine($"outer method, num1 = {num1} , num2 = {num2}");
+            #endregion
+            #region reference type
+            //int[] outrarr = { 3, 5, 6 };
+            //Console.WriteLine($"hashcode before: {outrarr.GetHashCode()}");
+            
+            //int sum = SumArrayByValue(outrarr);
+            //Console.WriteLine($"sum of pass by value {sum}");
+            //Console.WriteLine($"elmenet [0] after pass by value = {outrarr[0]}");
+            //Console.WriteLine($"after new intilize, elmenet [0] after pass by value = {outrarr[0]}");
+            //Console.WriteLine($"hashcode after pass by value: {outrarr.GetHashCode()}");
 
+
+            //int sum2 = SumArrayByRef(ref outrarr);
+            //Console.WriteLine($"sum of pass by ref {sum2}");
+            //Console.WriteLine($"elmenet [0] after pass by ref = {outrarr[0]}");
+            //Console.WriteLine($"after new intilize, elmenet [0] after pass by ref = {outrarr[0]}");
+            //Console.WriteLine($"hashcode after pass by ref: {outrarr.GetHashCode()}");
+
+            //Point outerp = new Point() { X = 50 , Y = 40};
+            ////PointInitilize(outerp);
+            //PointInitilize(ref outerp);
+            //Console.WriteLine(outerp.X);
+
+
+            #endregion
             #endregion
 
             #region Exceptions Handling
@@ -804,5 +865,102 @@ namespace Demo01
 
             #endregion
         }
+
+        #region Functions
+        #region Prortotype and calling
+        //public static void PrintLine()
+        //{
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Console.Write("#");
+        //    }
+        //    Console.WriteLine("");
+        //}
+
+        //public static void PrintLine(int number,string pattern)
+        //{
+        //    for (int i = 0; i < number; i++)
+        //    {
+        //        Console.Write(pattern);
+        //    }
+        //    Console.WriteLine("");
+        //}
+
+        //public static void PrintLine(int number = 10, string pattern = "#")
+        //{
+        //    for (int i = 0; i < number; i++)
+        //    {
+        //        Console.Write(pattern);
+        //    }
+        //    Console.WriteLine("");
+        //}
+        #endregion
+
+        #region value type 
+        ////pass by value
+        //public static void SwapByValue(int x , int y)
+        //{
+        //    Console.WriteLine($"inner method num1 = {x} , num2 = {y}");
+        //    int temp = x;
+        //    x = y;
+        //    y = temp;
+        //    Console.WriteLine($"inner method num1 = {x} , num2 = {y}");
+        //}
+
+        ////pass by ref
+        //public static void SwapByRef(ref int x,ref int y)
+        //{
+        //    Console.WriteLine($"inner method num1 = {x} , num2 = {y}");
+        //    int temp = x;
+        //    x = y;
+        //    y = temp;
+        //    Console.WriteLine($"inner method num1 = {x} , num2 = {y}");
+        //}
+        #endregion
+
+        #region reference type
+        ////reference type ,passing by value
+        //public static int SumArrayByValue(int[] arr)
+        //{
+        //    int sum = 0;
+
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+        //    //arr[0] = 10;
+
+        //    arr = new int[] { 1, 2, 3 };
+
+        //    return sum;
+        //}
+
+        ////reference type ,passing by ref
+        //public static int SumArrayByRef(ref int[] arr)
+        //{
+        //    int sum = 0;
+
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+        //    //arr[0] = 20;
+
+        //    arr = new int[] { 1, 2, 3 };
+
+        //    return sum;
+        //}
+
+        //public static void PointInitilize(Point p1)
+        //{
+        //    p1 = new Point() { X = 10, Y = 10 };
+        //}
+
+        //public static void PointInitilize(ref Point p1)
+        //{
+        //    p1 = new Point() { X = 10, Y = 10 };
+        //}
+        #endregion
+        #endregion
     }
 }

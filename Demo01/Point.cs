@@ -10,5 +10,12 @@ namespace Demo01
     {
         public int X; 
         public int Y;
+        //public Point()
+        //{
+        //    //Program p01 = new Program();
+        //    //p01.PrintLine();
+
+        //    Program.PrintLine();
+        //}
     }
 }
