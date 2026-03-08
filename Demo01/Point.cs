@@ -8,7 +8,7 @@ namespace Demo01
 {
     internal class Point
     {
-        public int X; 
+        public int X;
         public int Y;
         //public Point()
         //{
@@ -17,5 +17,11 @@ namespace Demo01
 
         //    Program.PrintLine();
         //}
+    }
+
+    internal class SumMul
+    {
+        public int sum;
+        public int mul;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Demo01
 {
@@ -834,7 +835,7 @@ namespace Demo01
             #region reference type
             //int[] outrarr = { 3, 5, 6 };
             //Console.WriteLine($"hashcode before: {outrarr.GetHashCode()}");
-            
+
             //int sum = SumArrayByValue(outrarr);
             //Console.WriteLine($"sum of pass by value {sum}");
             //Console.WriteLine($"elmenet [0] after pass by value = {outrarr[0]}");
@@ -855,10 +856,62 @@ namespace Demo01
 
 
             #endregion
+            #region OutPut parameter
+            //int num1 = 10, num2 = 20 , sum = 0 , mul = 0;
+            //SumMul result = SumMul(num1, num2);
+            //Console.WriteLine($"sum = {result.sum} , mul = {result.mul}");
+
+            //SumMulByRef(num1, num2, ref sum, ref mul);
+            //Console.WriteLine($"sum = {sum} , mul = {mul}");
+
+            //SumMulByOut(num1, num2); //invalid
+            //SumMulByOut(num1, num2,out sum , out mul);
+            //SumMulByOut(num1, num2,out _ , out mul);
+            //SumMulByOut(num1, num2,out sum , out _);
+            //SumMulByOut(num1, num2,out _ , out _);
+
+            //Console.WriteLine($"sum = {sum} , mul = {mul}");
+            #endregion
+            #region Params
+            //int[] newarr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //SumArray(newarr);
+
+            //SumArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+
+            #endregion
             #endregion
 
             #region Exceptions Handling
+            //while (true)
+            //{
+            //    try
+            //    {
+            //        DoSomeCode();
+            //    }
+            //    //catch (Exception ex)
+            //    //{
+            //    //    //throw ex;
+            //    //    //Console.WriteLine(ex.Message);
+            //    //}
+            //    finally
+            //    {
+            //        // [release | deallocate | Delete | close] unmanaged resoutces [databaseconnection , file]
+            //        Console.WriteLine("finally");
+            //    }
+            //    Console.WriteLine("the program is still runing");
+            //}
 
+            /* Exception
+            ////// 1. SystemException
+            //////////////// 1. FormatException
+            //////////////// 2. IndexOutOfRangeException
+            //////////////// 4. NullReferenceException
+            //////////////// 4. InvalidOperationException
+            //////////////// 5. ArithmeticException
+            ///////////////////////// 5.1 DivideByZeroException
+            ///////////////////////// 5.2 OverflowException
+            ////// 2. ApplicationException
+            */
             #endregion
 
             #region Enums
@@ -961,6 +1014,118 @@ namespace Demo01
         //    p1 = new Point() { X = 10, Y = 10 };
         //}
         #endregion
+
+        #region  OutPut parameter
+        /// write class memeber method 
+        /// that calac sum and mul of two numbers take them from parameter and return them with any way 
+        //public static SumMul SumMul(int x , int y)
+        //{
+        //    SumMul result = new SumMul();
+        //    result.sum = x + y;
+        //    result.mul = x * y;
+        //    return result;
+        //}
+
+        //public static void SumMulByRef(int x, int y, ref int sum, ref int mul)
+        //{
+        //    //sum = x + y;
+        //    //mul = x * y;
+        //}
+
+        //public static void SumMulByOut(int x, int y, out int sum, out int mul)
+        //{
+        //    sum = x + y;
+        //    mul = x * y;
+        //}
+        /// By Value     => Read Only
+        /// By Ref       => Read  at First and Then Write (Parameter Passed By Ref, Must be initialized Before Passed)
+        /// By Out       => Write at First and Then Read (Parameter Passed By Out, Must be initialized Inside Function)
+        #endregion
+
+        #region Params
+        //public static int SumArray(int[] arr)
+        //{
+        //    int sum = 0;
+
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+
+        //    return sum;
+        //}
+
+
+        //public static int SumArray(int tax, int service, params int[] arr)
+        //{
+        //    int sum = 0;
+
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+
+        //    return sum;
+        //}
+        #endregion
+        #endregion
+
+        #region Exceptions Handling
+        //static void DoSomeCode()
+        //{
+        //    int x, y, z;
+        //    Console.WriteLine("please enter first number:");
+        //    x = int.Parse(Console.ReadLine());
+
+        //    Console.WriteLine("please enter seconed number:");
+        //    y = int.Parse(Console.ReadLine());
+
+        //    z = x / y;
+
+        //    Console.WriteLine($"result is : {z}");
+
+        //    int[] arr = new int[3] { 1, 2, 3 };
+
+        //    Console.WriteLine("please enter the index to change it's value");
+        //    int index = int.Parse(Console.ReadLine());
+
+        //    arr[index] = 99;
+        //}
+
+        //static void DoSomeProtictiveCode()
+        //{
+        //    try
+        //    {
+        //        int x, y, z;
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter first number:");
+        //        } while (!int.TryParse(Console.ReadLine(), out x));
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter seconed number:");
+        //        } while (!int.TryParse(Console.ReadLine(), out y) || y == 0);
+
+        //        z = x / y;
+
+        //        Console.WriteLine($"result is : {z}");
+
+        //        int[] arr = new int[3] { 1, 2, 3 };
+        //        int index;
+        //        do
+        //        {
+        //            Console.WriteLine("please enter the index to change it's value");
+        //        } while (!int.TryParse(Console.ReadLine(), out index) || index < 0 || index >= arr.Length);
+
+        //        arr[index] = 99;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
         #endregion
     }
 }
