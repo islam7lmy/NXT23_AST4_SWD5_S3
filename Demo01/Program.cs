@@ -4,6 +4,10 @@ using System.Xml.Serialization;
 
 namespace Demo01
 {
+    /// 1. class
+    /// 2. struct 
+    /// 3. enum
+    /// 4. interface
     internal class Program
     {
         /// <summary>
@@ -915,7 +919,71 @@ namespace Demo01
             #endregion
 
             #region Enums
+            #region ex01
+            //Days day = Days.sat;
+            //Console.WriteLine(day.ToString()); // label
+            //Console.WriteLine((int)day); // number
 
+            //day = (Days)10;
+            //Console.WriteLine(day.ToString()); // label
+            //Console.WriteLine((int)day); // number 
+
+            //Point p1 = new Point();
+            //Console.WriteLine(p1.ToString());
+            #endregion
+
+            #region ex02
+            //Console.WriteLine((int)Gender.male);
+            //Console.WriteLine((int)Gender.Male);
+            //Console.WriteLine((int)Gender.M);
+            //Console.WriteLine((int)Gender.m);
+            #endregion
+
+            #region ex : enums + params
+            //CalculateBill(14, 12, Menu.Pizza, Menu.Juice, Menu.Salad, Menu.Dessert);
+            #endregion
+
+            #region Permission
+            //Permission Myp = Permission.write;
+            //Console.WriteLine((int) Myp);
+
+            //Myp = (Permission)3;
+            //Console.WriteLine(Myp);
+
+            //Myp = (Permission)15;
+            //Console.WriteLine(Myp);
+
+            ////// If You Want To Add Permission, Do Or Operation
+            //Myp |= Permission.read;
+            //Console.WriteLine(Myp); //write , read
+
+            ////// If You Want To Remove (Deny) Permission, Do Nor operation
+            //Myp &= ~Permission.read;
+            //Console.WriteLine(Myp); //write
+
+            //Myp &= ~Permission.delete;
+            //Console.WriteLine(Myp); //write
+
+            //////If You Want To remove if exists or Add Permission if not exists, Do XOR Operation
+            //Myp ^= Permission.read;
+            //Console.WriteLine(Myp); // write
+
+            //Myp ^= Permission.delete;
+            //Console.WriteLine(Myp);  // write , delete
+
+
+            ////// Check Read Permission is existed inside MyP
+            //if((Myp & Permission.read ) == Permission.read)
+            //    Console.WriteLine("read permission is exists");
+            //else
+            //    Console.WriteLine("read permission is not exists");
+
+
+            //function to add permission
+            //function to remove permission
+            //function to check if permission exists return true else return false
+
+            #endregion
             #endregion
         }
 
@@ -1067,6 +1135,43 @@ namespace Demo01
 
         //    return sum;
         //}
+
+        #region ex : enums + params
+        /// write class member method that take from user
+        /// int tax and int service and order item
+        /// then print
+        /// order details:
+        /// Pizza : 120
+        /// Juice : 60
+        /// ـــــــــــــــ
+        /// total item : 180
+        /// tax : (total item * (tax / 100))
+        /// service : (total item * (service / 100))
+        /// ــــــــــــــــ
+        /// total order : total + tax + service
+        /// return total
+
+        //static double CalculateBill(int tax, int service, params Menu[] items)
+        //{
+        //    double total = 0 , taxinmony = 0 , serviceinmony = 0;
+        //    Console.WriteLine("order details :");
+        //    foreach (var item in items)
+        //    {
+        //        Console.WriteLine($"{item} : {(int) item}");
+        //        total += (int)item;
+        //    }
+        //    Console.WriteLine(@"ــــــــــــــــــ");
+        //    Console.WriteLine($"total items : {total}");
+        //    taxinmony = total * ((double)tax / 100);
+        //    Console.WriteLine($"tax : {taxinmony}");
+        //    serviceinmony = total * ((double)tax / 100);
+        //    Console.WriteLine($"service : {serviceinmony}");
+        //    Console.WriteLine("ــــــــــــــــــ");
+        //    total += taxinmony + serviceinmony;
+        //    Console.WriteLine($"total order :{total}");
+        //    return total;
+        //}
+        #endregion
         #endregion
         #endregion
 
@@ -1128,4 +1233,67 @@ namespace Demo01
         //}
         #endregion
     }
+
+    #region Enums
+    enum Days : int
+    {
+        // labaels => numbers
+        sat,
+        sun,
+        mon,
+        tus,
+        wed,
+        thr,
+        fri
+    }
+
+    enum Gender : int
+    {
+        male = 1, Male = 1, M = 1, m = 1,
+        female = 2, Female = 2, F = 2, f = 2
+    }
+
+    enum Branches : byte // 0 => 255
+    {
+        smartvally = 105, gamasa = 106, _6oct = 252 ,mansoura, alex , cairo , banha = 0 , asyut 
+    }
+
+    #region ex : enums + params
+    enum Menu
+    {
+        Pizza = 120,
+        Burger = 150,
+        Juice = 40,
+        Salad = 30,
+        Dessert = 60
+    }
+    #endregion
+
+    #region ex: permissions
+    //class users
+    //{
+    //    public int id;
+    //    public Permission MyPermission; //1 byte
+    //    //public bool write;   //1 byte
+    //    //public bool read;    //1 byte
+    //    //public bool delete;  //1 byte
+    //    //public bool update;  //1 byte
+    //    //public bool select;  //1 byte
+    //    //public bool execute; //1 byte
+    //}
+
+    [Flags] // Data Annotation (decrator) => learn new behvior to calc
+    enum Permission : byte
+    {
+        write = 1,
+        read = 2,
+        delete = 4,
+        update = 8,
+        select = 16,
+        execute = 32,
+        modify = 64,
+        debug = 128
+    }
+    #endregion
+    #endregion
 }
