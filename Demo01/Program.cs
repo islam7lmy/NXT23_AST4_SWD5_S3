@@ -979,12 +979,23 @@ namespace Demo01
             //    Console.WriteLine("read permission is not exists");
 
 
-            //function to add permission
-            //function to remove permission
-            //function to check if permission exists return true else return false
+
+            #endregion
+
+            #region Permission Functions
+            Permission MyP = new Permission();
+            Console.WriteLine(MyP); // 0
+            AddPermission(ref MyP, Permission.read, Permission.write);
+            Console.WriteLine(MyP); // 3 or read, write
+            RemovePermission(ref MyP, Permission.read);
+            Console.WriteLine(MyP); // write
+            Console.WriteLine(cheackPermission(MyP,Permission.write));
+            Console.WriteLine(cheackPermission(MyP, Permission.read));
 
             #endregion
             #endregion
+
+
         }
 
         #region Functions
@@ -1232,6 +1243,38 @@ namespace Demo01
         //    }
         //}
         #endregion
+
+
+        #region Permission functions
+        //function to add permission
+        static void AddPermission(ref Permission CurrentPermission, params Permission[] PermissionsToAdd)
+        {
+            foreach (Permission Permission in PermissionsToAdd)
+            {
+                CurrentPermission |= Permission;
+            }
+        }
+
+
+
+        //function to remove permission
+        static void RemovePermission(ref Permission CurrentPermission, params Permission[] PermissionsToRemove)
+        {
+            foreach (Permission Permission in PermissionsToRemove)
+            {
+                CurrentPermission &= ~Permission;
+            }
+        }
+
+        //function to check if permission exists return true else return false
+        static bool cheackPermission(Permission CurrentPermission, Permission PermissionsTocheck)
+        {
+            return (CurrentPermission & PermissionsTocheck) == PermissionsTocheck;
+
+        }
+
+
+        #endregion
     }
 
     #region Enums
@@ -1255,7 +1298,7 @@ namespace Demo01
 
     enum Branches : byte // 0 => 255
     {
-        smartvally = 105, gamasa = 106, _6oct = 252 ,mansoura, alex , cairo , banha = 0 , asyut 
+        smartvally = 105, gamasa = 106, _6oct = 252, mansoura, alex, cairo, banha = 0, asyut
     }
 
     #region ex : enums + params
