@@ -983,19 +983,16 @@ namespace Demo01
             #endregion
 
             #region Permission Functions
-            Permission MyP = new Permission();
-            Console.WriteLine(MyP); // 0
-            AddPermission(ref MyP, Permission.read, Permission.write);
-            Console.WriteLine(MyP); // 3 or read, write
-            RemovePermission(ref MyP, Permission.read);
-            Console.WriteLine(MyP); // write
-            Console.WriteLine(cheackPermission(MyP,Permission.write));
-            Console.WriteLine(cheackPermission(MyP, Permission.read));
-
+            //Permission MyP = new Permission();
+            //Console.WriteLine(MyP); // 0
+            //AddPermission(ref MyP, Permission.read, Permission.write);
+            //Console.WriteLine(MyP); // 3 or read, write
+            //RemovePermission(ref MyP, Permission.read);
+            //Console.WriteLine(MyP); // write
+            //Console.WriteLine(cheackPermission(MyP,Permission.write));
+            //Console.WriteLine(cheackPermission(MyP, Permission.read));
             #endregion
             #endregion
-
-
         }
 
         #region Functions
