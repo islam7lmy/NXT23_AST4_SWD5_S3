@@ -60,13 +60,36 @@ namespace OOP
             //Console.WriteLine(emp.Age);
             #endregion
             #region EX03 : PhoneBook [indexer]
-            PhoneBook book = new PhoneBook();
-            book.AddNumbers("amr", 123, 0);
-            book.AddNumbers("ali", 456, 1);
-            book.AddNumbers("aya", 789, 2);
+            PhoneBook book = new PhoneBook(3);
+            book.AddNumbers("amr", 123);
+            book.AddNumbers("ali", 456);
+            book.AddNumbers("aya", 789);
+            book.AddNumbers("test", 1789);
+            book.AddNumbers("test2", 2789);
+
+            book.RemoveNumber("test");
+            book.RemoveNumber("test2");
+
+            Console.WriteLine(book.Size);
 
 
+            //book.SetNumber("amr", 999);
+            //Console.WriteLine(book.GetNumber("amr"));
 
+
+            //book["amr"] = 999;
+            //Console.WriteLine(book["amr"]);
+
+            //for (int i = 0; i < book.Size; i++)
+            //{
+            //    Console.WriteLine(book[i]);
+            //}
+
+            //book.Size = 15;
+            for (int i = 0; i < book.Size; i++)
+            {
+                Console.WriteLine(book[i]);
+            }
             #endregion
             #endregion
         }
