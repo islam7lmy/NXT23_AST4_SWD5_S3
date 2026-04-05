@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Inhertiance
 {
+    ///base class
     internal class Parent
     {
         public int X { get; set; }

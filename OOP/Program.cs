@@ -1,5 +1,6 @@
-﻿using Commen;
-using OOP.Inhertiance;
+﻿//using Commen;
+//using OOP.Inhertiance;
+using OOP.PolyMorphism_OverRiding;
 namespace OOP
 {
     internal class Program
@@ -167,6 +168,102 @@ namespace OOP
             ///Console.WriteLine(Sum(10, 20)); // call Sum(int x, int y)
             #endregion
             #region OverRiding
+            //object obj = new object();
+            //obj.ToString();
+
+            //TypeA a = new TypeA(10);
+            //Console.WriteLine(a.ToString());
+
+            //TypeB b = new TypeB(10,20);
+            //b.MyFun01();
+            //b.MyFun02();
+            #endregion
+            #endregion
+
+            #region Binding
+            #region What is Binding
+            /// reference => stack
+            /// object => heap
+            /// binding => create reference form parent type and create object from child type
+            //Parent p = new Child(10,20,30); //binding
+
+            //Child c =(Child) new Parent(10,20); //not binding
+
+            //TypeB b = new TypeB(10, 20);
+            //b.A = 1;
+            //b.B = 2;
+            //b.MyFun01();
+            //b.MyFun02();
+            //Console.WriteLine(b.ToString());
+
+            //TypeA a = new TypeB(10, 20);
+            //a.A = 1;
+            ////a.B = 2; //invalid
+            //a.MyFun01();
+            //a.MyFun02();
+            ////a.MyFun03();//invalid
+            //Console.WriteLine(a.ToString());
+
+            ///static binding [early binding]
+            ///Complier will bind function call based on reference type not object type
+            //a.MyFun01(); /// will run parent Code
+
+            ///dynamic binding [late binding]
+            ///complier will bind function call based on object type not reference type
+            //a.MyFun02(); /// will run child code
+            #endregion
+            #region Not Binding
+            ///animal = dog; //binding
+            ///dog =(dog) animal; //not binding
+
+            ///Child c =(Child) new Parent(10,20); //not binding
+            #endregion
+            #region Why Need Binding
+            //FullTimeEmployee fullTimeEmployee = new FullTimeEmployee();
+            ////Employee emp = new FullTimeEmployee(); //binding
+            //ProcessEmployee(fullTimeEmployee);
+
+            //PartTimeEmployee partTimeEmployee = new PartTimeEmployee();
+            ////Employee emp = new PartTimeEmployee();
+            //ProcessEmployee(partTimeEmployee);
+            #endregion
+            #region More Practise On Binding
+            //TypeA typeA = new TypeC(1, 2, 3); /// reference from Indirect Parent
+            //typeA.A = 11;
+            ////typeA.B = 22;//invalid
+            ////typeA.C = 33;//invalid
+            //typeA.MyFun01(); ///Hii i am MyFun01 of TypeA [Parent]
+            //typeA.MyFun02(); ///TypeC: A = 11, B = 2, C = 3
+            ////typeA.MyFun03();//invalid
+
+            //TypeB typeB = new TypeC(1, 2, 3); /// reference from direct Parent
+            //typeB.A = 11;
+            //typeB.B = 22;
+            ////typeB.C = 33;//invalid
+            //typeB.MyFun01(); ///Hii i am MyFun01 of TypeB [Child]
+            //typeB.MyFun02(); ///TypeC: A = 11, B = 22, C = 3
+            //typeB.MyFun03(); ///I am test function
+
+            //TypeA typeA = new TypeD(1, 2, 3, 4); 
+            //TypeB typeB = new TypeD(1, 2, 3, 4); 
+            //TypeC typeC = new TypeD(1, 2, 3, 4); 
+
+            //typeA.MyFun02();///TypeC: A = 1, B = 2, C = 3
+            //typeB.MyFun02();///TypeC: A = 1, B = 2, C = 3
+            //typeC.MyFun02();///TypeC: A = 1, B = 2, C = 3
+
+
+            //TypeA typeA = new TypeE(1, 2, 3, 4, 5);
+            //TypeB typeB = new TypeE(1, 2, 3, 4, 5);
+            //TypeC typeC = new TypeE(1, 2, 3, 4, 5);
+            //TypeD typeD1 = new TypeD(1, 2, 3, 4);
+            //TypeD typeD2 = new TypeE(1, 2, 3, 4, 5);
+
+            //typeA.MyFun02();///TypeC: A = 1, B = 2, C = 3
+            //typeB.MyFun02();///TypeC: A = 1, B = 2, C = 3
+            //typeC.MyFun02();///TypeC: A = 1, B = 2, C = 3
+            //typeD1.MyFun02();///TypeD: A = 1, B = 2, C = 3, D = 4
+            //typeD2.MyFun02();///TypeE: A = 1, B = 2, C = 3, D = 4, E = 5
 
             #endregion
             #endregion
@@ -176,59 +273,104 @@ namespace OOP
         ///1. data types of parameters
         ///2. Count of parameters
         ///3. order of parameters if not same data types
-        
 
-        public static int Sum(int y, short x)
+
+        //public static int Sum(int y, short x)
+        //{
+        //    return x + y;
+        //}
+
+        //public static int Sum(int x, short y) // not overloading because same signature as Sum(int y, short x)
+        //{
+        //    return x + y;
+        //}
+        //public static double Sum(int y, short x)  /// not overloading because same signature as Sum(short x, int y)
+        //{
+        //    return x + y;
+        //}
+        //public static int Sum(short x, short y, short z)
+        //{
+        //    return x + y + z;
+        //}
+        //public static int Sum(short x, short y)
+        //{
+        //    return x + y;
+        //}
+        //public static int Sum(short x, int y)
+        //{
+        //    return x + y;
+        //}
+        //public static int Sum(int x, int y)
+        //{
+        //    return x + y;
+        //}
+        //public static int Sum(long x, int y)
+        //{
+        //    return (int)(x + y);
+        //}
+        //public static int Sum(long x, long y)
+        //{
+        //    return (int)(x + y);
+        //}
+        //public static int Sum(short x, float y)
+        //{
+        //    return (int)(x + y);
+        //}
+
+        //public static int Sum(short x, double y)
+        //{
+        //    return (int)(x + y);
+        //}
+
+        //public static int Sum(short x, decimal y)
+        //{
+        //    return (int)(x + y);
+        //}
+        #endregion
+
+        #region Why Need Binding
+        public static void ProcessEmployee(Employee emp)
         {
-            return x + y;
+            if (emp is not null)
+            {
+                /// i need to run reference code
+                /// so you must override it with static binding
+                /// new key word
+                emp.MyFun01(); /// parent code
+
+                /// i need to run object code
+                /// so you must override it with dynamic binding
+                /// override key word
+                emp.MyFun02(); /// child code
+            }
         }
 
-        public static int Sum(int x, short y) // not overloading because same signature as Sum(int y, short x)
-        {
-            return x + y;
-        }
-        public static double Sum(int y, short x)  /// not overloading because same signature as Sum(short x, int y)
-        {
-            return x + y;
-        }
-        public static int Sum(short x, short y, short z)
-        {
-            return x + y + z;
-        }
-        public static int Sum(short x, short y)
-        {
-            return x + y;
-        }
-        public static int Sum(short x, int y)
-        {
-            return x + y;
-        }
-        public static int Sum(int x, int y)
-        {
-            return x + y;
-        }
-        public static int Sum(long x, int y)
-        {
-            return (int)(x + y);
-        }
-        public static int Sum(long x, long y)
-        {
-            return (int)(x + y);
-        }
-        public static int Sum(short x, float y)
-        {
-            return (int)(x + y);
-        }
+        //public static void ProcessEmployee(FullTimeEmployee emp)
+        //{
+        //    if(emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
 
-        public static int Sum(short x, double y)
-        {
-            return (int)(x + y);
-        }
+        //public static void ProcessEmployee(PartTimeEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
 
-        public static int Sum(short x, decimal y)
-        {
-            return (int)(x + y);
-        }
+        //public static void ProcessEmployee(FreeLanceEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.MyFun01();
+        //        emp.MyFun02();
+        //    }
+        //}
         #endregion
     }
 }

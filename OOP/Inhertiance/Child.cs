@@ -1,5 +1,6 @@
 ﻿namespace OOP.Inhertiance
 {
+    ///drived
     class Child : Parent
     {
         //public int X { get; set; }

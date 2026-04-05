@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP
 {
-    internal struct Employee
+    internal struct Employee0
     {
         public int Id;
 

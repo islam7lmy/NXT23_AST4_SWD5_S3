@@ -21,12 +21,20 @@ namespace OOP.PolyMorphism_OverRiding
         {
             Console.WriteLine($"TypeA: A = {A}");
         }
+
+        public override string ToString()
+        {
+            //base keyword => refer to class that i inhert from it
+            //return base.ToString();
+            return $"TypeA : {A}";
+        }
     }
 
     class TypeB : TypeA
     {
         public int B { get; set; }
-        public TypeB(int _A , int _B) : base(_A)
+
+        public TypeB(int _A, int _B) : base(_A)
         {
             B = _B;
         }
@@ -45,6 +53,62 @@ namespace OOP.PolyMorphism_OverRiding
         {
             ///base.MyFun02();
             Console.WriteLine($"TypeB: A = {A}, B = {B}");
+        }
+
+        public void MyFun03()
+        {
+            Console.WriteLine("I am test function");
+        }
+    }
+
+    class TypeC : TypeB
+    {
+        public int C { get; set; }
+        public TypeC(int _A, int _B, int _C) : base(_A, _B)
+        {
+            C = _C;
+        }
+
+        public new void MyFun01()
+        {
+            Console.WriteLine("Hii i am MyFun01 of TypeC [Grand Child]");
+        }
+
+        public override void MyFun02()
+        {
+            ///base.MyFun02();
+            Console.WriteLine($"TypeC: A = {A}, B = {B}, C = {C}");
+        }
+    }
+
+    class TypeD : TypeC
+    {
+        public int D { get; set; }
+        public TypeD(int _A, int _B, int _C, int _D) : base(_A, _B, _C)
+        {
+            D = _D;
+        }
+
+        ///static binded
+        public new virtual void MyFun02()
+        {
+            ///base.MyFun02();
+            Console.WriteLine($"TypeD: A = {A}, B = {B}, C = {C}, D = {D}");
+        }
+    }
+
+    class TypeE : TypeD
+    {
+        public int E { get; set; }
+        public TypeE(int _A, int _B, int _C, int _D, int _E) : base(_A, _B, _C, _D)
+        {
+            E = _E;
+        }
+
+        public override void MyFun02()
+        {
+            ///base.MyFun02();
+            Console.WriteLine($"TypeE: A = {A}, B = {B}, C = {C}, D = {D}, E = {E}");
         }
     }
 }
