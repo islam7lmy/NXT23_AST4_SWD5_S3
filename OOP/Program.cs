@@ -1,5 +1,6 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
+using OOP.Interfaces;
 using OOP.PolyMorphism_OverRiding;
 namespace OOP
 {
@@ -222,6 +223,7 @@ namespace OOP
             //FullTimeEmployee fullTimeEmployee = new FullTimeEmployee();
             ////Employee emp = new FullTimeEmployee(); //binding
             //ProcessEmployee(fullTimeEmployee);
+            //ProcessEmployee(new FullTimeEmployee());
 
             //PartTimeEmployee partTimeEmployee = new PartTimeEmployee();
             ////Employee emp = new PartTimeEmployee();
@@ -266,6 +268,150 @@ namespace OOP
             //typeD2.MyFun02();///TypeE: A = 1, B = 2, C = 3, D = 4, E = 5
 
             #endregion
+            #endregion
+
+            #region Interfaces
+            #region Ex01
+            //IMyType myType0 = new IMyType(); //not valid
+
+            /// reference form parent type => refere object from child type
+            //IMyType myType = new MyTypeV2(); //binding
+            //myType.MyFun("***");
+            //myType.Salary = 20;
+            //myType.Print(); ///default implmented
+
+            //MyTypeV1 myTypeV1 = new MyTypeV1();
+            //myTypeV1.MyFun("**");
+            //myTypeV1.Salary = 20;
+            //myTypeV1.Print(); /// not valid
+            #endregion
+            #region Ex02
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+            //Print10NumbersFromSeries(seriesByTwo);
+            //Print10NumbersFromSeries(new SeriesByTwo());
+            //Print10NumbersFromSeries(new SeriesByThree());
+            //Print10NumbersFromSeries(new SeriesByFour());
+            #endregion
+            #region Implment Interface Implicitly Vs Implment Interface Explicitly
+            //OOP.Interfaces.Car car = new OOP.Interfaces.Car();
+            //car.Forward();
+            //car.Backward();
+
+            //AirPlan plan = new AirPlan();
+            //plan.Backward(); //implicit
+            ////plan.Forward();//notvalid because its explicit implment
+
+            //IFlayable flayable = plan;
+            //flayable.Forward();
+
+            //IMoveable moveable = plan;
+            //moveable.Forward();
+
+            #endregion
+            #endregion
+
+            #region Shallow Copy Vs Deep Copy
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = { 4, 5, 6 };
+
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}");
+            #region Shallow Copy
+            //Arr02 = Arr01; ///Shallow Copy => copy Refernece Only
+            ////Arr02[0] = 30;
+            //Console.WriteLine("After Shallow Copy");
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}");
+            #endregion
+
+            #region Deep Copy
+            //Arr02 = (int[])Arr01.Clone();
+            ////Arr02[0] = 30;
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}");
+            #endregion
+            //foreach (int i in Arr01)
+            //{
+            //    Console.Write($"{i}\t");
+            //}
+            //Console.WriteLine();
+            //foreach (int i in Arr02)
+            //{
+            //    Console.Write($"{i}\t");
+            //}
+
+            //int x = 5;
+            //int y = 10;
+            //y = x;
+            //y = 30;
+
+            #endregion
+
+            #region Built-In Interface ICloneable
+            //OOP.Interfaces.Employee emp01 = new OOP.Interfaces.Employee() { Id = 10, Name = "Ahmed", Salary = 4000 };
+            //OOP.Interfaces.Employee emp02 = new OOP.Interfaces.Employee() { Id = 20, Name = "Omr", Salary = 8000 };
+
+            //Console.WriteLine($"emp01 : {emp01.GetHashCode()}");
+            //Console.WriteLine($"emp02 : {emp02.GetHashCode()}");
+
+            //emp02 = emp01;
+            //Console.WriteLine("after Shallow copy");
+            //Console.WriteLine($"emp01 : {emp01.GetHashCode()}");
+            //Console.WriteLine($"emp02 : {emp02.GetHashCode()}");
+
+
+            //emp02 = OOP.Interfaces.Employee.DeepCopy(emp01);
+            //emp02 = new OOP.Interfaces.Employee(emp01);
+            //emp02 =(OOP.Interfaces.Employee) emp01.Clone();
+            //Console.WriteLine("after Deep copy");
+            //Console.WriteLine($"emp01 : {emp01.GetHashCode()}");
+            //Console.WriteLine($"emp02 : {emp02.GetHashCode()}");
+            //Console.WriteLine(emp01);
+            //Console.WriteLine(emp02);
+
+            //OOP.Interfaces.Employee[] employees01 = {
+            //    new OOP.Interfaces.Employee(){ Id = 10, Name = "Ahmed", Salary = 4000 },
+            //    new OOP.Interfaces.Employee(){ Id = 20, Name = "omr", Salary = 8000 },
+            //    new OOP.Interfaces.Employee(){ Id = 30, Name = "Mohamed", Salary = 10000 },
+            //};
+
+
+            //OOP.Interfaces.Employee[] employees02 = {
+            //    new OOP.Interfaces.Employee(){ Id = 40, Name = "Ali", Salary = 4000 },
+            //    new OOP.Interfaces.Employee(){ Id = 50, Name = "Medhat", Salary = 8000 },
+            //    new OOP.Interfaces.Employee(){ Id = 60, Name = "Ibrahem", Salary = 10000 },
+            //};
+
+            //employees02 =(OOP.Interfaces.Employee[]) employees01.Clone();
+
+            //foreach (var item in employees01)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.WriteLine("///////////////////////////////////////////////////");
+
+            //foreach (var item in employees02)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Built-In Interface IComparable
+
+            #endregion
+            #region Abstract Class
+
+            #endregion
+
+            #region Operator Overloading
+
+            #endregion
+
+            #region User-Defined Casting Operator
+
             #endregion
         }
 
@@ -329,7 +475,7 @@ namespace OOP
         #endregion
 
         #region Why Need Binding
-        public static void ProcessEmployee(Employee emp)
+        public static void ProcessEmployee(PolyMorphism_OverRiding.Employee emp)
         {
             if (emp is not null)
             {
@@ -371,6 +517,53 @@ namespace OOP
         //        emp.MyFun02();
         //    }
         //}
+        #endregion
+
+        #region InterFaces
+        public static void Print10NumbersFromSeries(ISeries series)
+        {
+            if (series is not null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write(series.Current);
+                    Console.Write("\t");
+                    series.GetNext();
+                }
+                series.Reset();
+                Console.WriteLine();
+            }
+        }
+
+        //public static void Print10NumbersFromSeries(SeriesByTwo series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            Console.Write("\t");
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
+        //    }
+        //}
+
+        //public static void Print10NumbersFromSeries(SeriesByThree series)
+        //{
+        //    if (series is not null)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            Console.Write(series.Current);
+        //            Console.Write("\t");
+        //            series.GetNext();
+        //        }
+        //        series.Reset();
+        //        Console.WriteLine();
+        //    }
+        //} 
         #endregion
     }
 }
