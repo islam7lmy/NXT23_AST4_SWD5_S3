@@ -1,5 +1,6 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
+using OOP.Abstraction;
 using OOP.Interfaces;
 using OOP.PolyMorphism_OverRiding;
 namespace OOP
@@ -400,10 +401,39 @@ namespace OOP
             #endregion
 
             #region Built-In Interface IComparable
+            //Interfaces.Employee[] employees =
+            //{
+            //    new Interfaces.Employee(){ Id = 10 , Name = "Ahmed" , Salary = 4000 },
+            //    new Interfaces.Employee(){ Id = 20 , Name = "Ali" , Salary = 8000 },
+            //    new Interfaces.Employee(){ Id = 30 , Name = "Amr" , Salary = 6000 },
+            //    new Interfaces.Employee(){ Id = 40 , Name = "Omr" , Salary = 5000 },
+            //};
+
+            //Array.Sort(employees);
+
+            //for (int i = 0; i < employees.Length; i++)
+            //{
+            //    for (int j = 0; j < employees.Length - 1 - i; j++)
+            //    {
+            //        //if (employees[j] > employees[j + 1])
+            //        if (employees[j].CompareTo(employees[j + 1]) > 0)
+            //            SwapEmployee(employees[j], employees[j + 1]);
+            //    }
+            //}
+
+            //foreach (var item in employees)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             #endregion
-            #region Abstract Class
 
+            #region Abstract Class
+            ////Shape shape = new Shape(); //not valid
+            //Shape shape = new Squere(10);
+            ////shape.Dim01 = 20;
+            //Console.WriteLine(shape.Perimeter);
+            //Console.WriteLine(shape.CalcArea());
             #endregion
 
             #region Operator Overloading
