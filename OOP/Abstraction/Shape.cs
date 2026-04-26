@@ -91,7 +91,7 @@ namespace OOP.Abstraction
         public test()
         {
             Squere s = new Squere(10);
-            s.Dim01 = 20;
+            //s.Dim01 = 20;
         }
     }
 }

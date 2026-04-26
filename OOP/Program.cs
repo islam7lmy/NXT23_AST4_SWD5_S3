@@ -2,7 +2,9 @@
 //using OOP.Inhertiance;
 using OOP.Abstraction;
 using OOP.Interfaces;
+using OOP.Operator_OverLoading;
 using OOP.PolyMorphism_OverRiding;
+using OOP.Static;
 namespace OOP
 {
     internal class Program
@@ -437,11 +439,59 @@ namespace OOP
             #endregion
 
             #region Operator Overloading
+            //Complex c1 = new Complex() { Real = 2, Imag = 3 };
+            //Complex c2 = new Complex() { Real = 3, Imag = 4 };
+            //Complex c3 = new Complex() { Real = 4, Imag = 5 };
+            //Complex c5 = default;
 
+            //Complex c4 = c1 + c2 + c3 + c5;
+
+            ///////postfix => first use with old value then plus
+            //Console.WriteLine(c1++); // print => 2 + 3i , then value => 3 + 4i
+            ///////prefix =>  first plus then use with new value
+            //Console.WriteLine(++c1); // value => 4 + 5i , then print => 4 + 5i
+            //Console.WriteLine(c1--); // print => 4 + 5i , then value => 3 + 4i
+            //Console.WriteLine(--c1); // value => 2 + 3i , then print => 2 + 3i
+
+            //int x = 5;
+            //int result = 3 + 5 * x++ - 4 + 8 / ++x; 
+            ////int result = x++ + ++x;
+            //int a = x++; //a = 5 , x = 6
+            //int b = ++x; //b = 7 , x = 7
+            //int result = a + b;
+            //Console.WriteLine(result);
             #endregion
 
             #region User-Defined Casting Operator
+            //Operator_OverLoading.Employee employee = new Operator_OverLoading.Employee()
+            //{
+            //    Id = 102030,
+            //    FirstName = "Ahmed",
+            //    LastName = "Mohamed",
+            //    BirthDate = new DateOnly(2010,03,15),
+            //    Salary = 30000,
+            //    Address = "13, el galaa street",
+            //    City = "Mansoura",
+            //    Country = "Egypt"
+            //};
 
+            //EmployeeViewModel empview = (EmployeeViewModel)employee; //explicit casting
+            //EmployeeViewModel empview = employee; //not recomended implicit casting
+            //EmployeeViewModel empview = EmployeeViewModel.FromEmployee(employee); ///manual mapping
+            //EmployeeViewModel empview = employee.ToEmployeeViewModel(); ///extintion methods
+            //EmployeeViewModel empview = employee.ToEmployeeViewModelExtintion(); ///extintion methods
+            //Console.WriteLine(empview);
+
+            //int x = 10;
+            //x.add(2);
+            //x.sub(2);
+            //ExtintionMethods.add(x, 2);
+            #endregion
+
+            #region static [Class, Attribute, Property, Constructor, Method] and Constants
+            ////Utility u01 = new Utility(); //notvalid
+            ////Utility.PI = 777;
+            //Console.WriteLine(Utility.CalcCircleArea(10));
             #endregion
         }
 
@@ -596,4 +646,18 @@ namespace OOP
         //} 
         #endregion
     }
+
+    #region Extintion
+    static class hamada //ExtintionMethods
+    {
+        public static void add(this int num, int value)
+        {
+            num += value;
+        }
+        public static void sub(this int num, int value)
+        {
+            num -= value;
+        }
+    }
+    #endregion
 }
