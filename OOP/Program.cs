@@ -1,6 +1,7 @@
 ﻿//using Commen;
 //using OOP.Inhertiance;
 using OOP.Abstraction;
+using OOP.Generics;
 using OOP.Interfaces;
 using OOP.Operator_OverLoading;
 using OOP.PolyMorphism_OverRiding;
@@ -492,6 +493,88 @@ namespace OOP
             ////Utility u01 = new Utility(); //notvalid
             ////Utility.PI = 777;
             //Console.WriteLine(Utility.CalcCircleArea(10));
+            #endregion
+
+            #region Partiales
+            //Partiales.Employee emp = new Partiales.Employee();
+            //emp.Id = 100;
+            //emp.Name = "test";
+            //emp.Salary = 10000;
+            //emp.Address = "Mansoura";
+            //emp.Age = 10;
+            //emp.City = "asyut";
+            //emp.Country = "Egypt";
+            //emp.test1();
+            #endregion
+
+            #region Generics
+            #region EX01: Swap
+            //int num1 = 10, num2 = 20;
+            //object obj1 = num1 , obj2 = num2; //boxing
+            ////Helper.Swap(ref num1,ref num2);
+            //Helper.Swap(ref obj1, ref obj2); 
+            //num1 =(int) obj1; //unboxing
+            //num2 =(int) obj2; //unboxing
+            //Console.WriteLine($"num1 : {num1} , num2 : {num2}");
+
+            //string str1 = "Ahmed", str2 = "Mohamed";
+            //object xx = str1;
+            //object xxx = str2;
+            //Helper.Swap(ref xx , ref xxx);
+
+            //int num1 = 10;
+            //double num2 = 20.5;
+            //object obj1 = num1, obj2 = num2; //boxing
+            ////Helper.Swap(ref num1,ref num2);
+            //Helper.Swap(ref obj1, ref obj2);
+            //Console.WriteLine($"num1: {obj1} , num2: {obj2}");
+            ////num1 = (int)obj1; //unboxing => unsafe casting
+            ////num2 = (double)obj2; //unboxing
+            ////Console.WriteLine($"num1 : {num1} , num2 : {num2}");
+
+            //int num1 = 10, num2 = 20;
+            //Helper.Swap/*<int>*/(ref num1, ref num2);
+            //Console.WriteLine($"num1 : {num1} , num2 : {num2}");
+
+            //int num1 = 10;
+            //double num2 = 20.5;
+            //Helper.Swap(ref num1,ref num2);
+            #endregion
+            #region EX02: Search
+            //int[] numbers = { 5, 3, 2, 19, 4, 10, 1, 4 };
+            //int postion = Array.IndexOf(numbers, 10);
+            //int postion2 = Helper.SearchArray(numbers, 10);
+            //Console.WriteLine(postion);
+            //Console.WriteLine(postion2);
+
+            //Generics.Point[] points =
+            //{
+            //    new Generics.Point(0,0),
+            //    new Generics.Point(1,0),
+            //    new Generics.Point(2,0),
+            //    new Generics.Point(3,0),
+            //    new Generics.Point(4,0),
+            //    new Generics.Point(5,0),
+            //};
+            //int postion = Array.IndexOf(points, new Generics.Point(3, 0));
+            //int postion2 = Helper.SearchArray(points, new Generics.Point(3, 0));
+            //Console.WriteLine(postion);
+            //Console.WriteLine(postion2);
+
+            Generics.Point p1 = new Generics.Point(3, 0);
+            Generics.Point p2 = new Generics.Point(3, 0);
+
+            Console.WriteLine(p1.GetHashCode());
+            Console.WriteLine(p2.GetHashCode());
+            Console.WriteLine(p2.Equals(p1));
+
+
+            //string str = "ahmed";
+            //string str2 = "ahmed";
+            //Console.WriteLine(str.GetHashCode());
+            //Console.WriteLine(str2.GetHashCode());
+            //Console.WriteLine(str.Equals(str2));
+            #endregion
             #endregion
         }
 
